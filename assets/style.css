@@ -6,7 +6,27 @@ body {
 }
 
 .card {
-    background: #1b3e7ed0;
+    background: #1e5692d0;
     color: white;
     border-radius: 20px;
 }
+
+input {
+    width: 95%;
+    padding: 1.5rem;
+    margin-top: .5rem;
+    border-radius: 20px;
+    text-align: center;
+    height: 3rem;
+    color: #1e5692d0;
+    box-shadow: 2px 5px 5px #1e5692d0;
+}
+
+button {
+    width: 45%;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-left: 25%;
+    box-shadow: 2px 5px 5px #1e5692d0;
+}
+

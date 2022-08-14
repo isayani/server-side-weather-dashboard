@@ -38,8 +38,15 @@ var weather = {
         document.getElementById("icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
         document.getElementById("humid").innerText = "Humidity: " + humidity + "%";
         document.getElementById("speed").innerText = "Wind Speed: " + speed + "mph"; 
+    },
+    search: function () {
+        this.fetchWeather(document.querySelector(".searchBar").value);
     }
 };
+
+document.querySelector(".btn").addEventListener("click", function () {
+    weather.search();
+});
 
 // Curl href
 // https://api.openweathermap.org/data/2.5/weather?q=Atlanta&appid=f06df96322709f9b0254307f0735bb9c

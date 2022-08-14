@@ -15,11 +15,12 @@ div.flex {
     align-items: center;
 }
 
+
 #descr {
     text-transform: capitalize;
 }
 
-input {
+.searchBar {
     width: 95%;
     padding: 1.5rem;
     margin-top: .5rem;
@@ -28,6 +29,7 @@ input {
     height: 3rem;
     color: #1e5692d0;
     box-shadow: 2px 5px 5px #1e5692d0;
+    text-decoration: none;
 }
 
 button {

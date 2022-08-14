@@ -31,7 +31,7 @@ var weather = {
         var { temp, humidity } = data.main;
         var { speed } = data.wind;
         // var { uvi } = data.current.uvi;
-        console.log(name, dt, icon, description, temp, humidity, speed)
+        // console.log(name, dt, icon, description, temp, humidity, speed)
         document.getElementById("city").innerText = name;
         document.getElementById("temp").innerText = temp + "°F";
         document.getElementById("descr").innerText = description;
@@ -47,6 +47,15 @@ var weather = {
 document.querySelector(".btn").addEventListener("click", function () {
     weather.search();
 });
+
+document.querySelector(".searchBar").addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        weather.search();
+    }
+});
+
+// Ensures placeholder on load
+weather.fetchWeather("Atlanta");
 
 // Curl href
 // https://api.openweathermap.org/data/2.5/weather?q=Atlanta&appid=f06df96322709f9b0254307f0735bb9c

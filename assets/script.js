@@ -25,8 +25,16 @@ var weather = {
         .then((data) => this.displayWeather(data));
     },
 
+    fetchUVI: function (lat, lon) {
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.749&lon=-84.388&units=imperial&appid=" 
+        + this.apiKey
+        )
+        .then((response) => response.json())
+        .then((data) => this.displayUVI(data));
+    },
+
     displayWeather: function (data) {
-        var { name, dt } = data;
+        var { name } = data;
         var { icon, description } = data.weather[0];
         var { temp, humidity } = data.main;
         var { speed } = data.wind;
@@ -41,7 +49,18 @@ var weather = {
     },
     search: function () {
         this.fetchWeather(document.querySelector(".searchBar").value);
+    },
+
+    displayUVI: function (data) {
+        var { uvi } = data.daily[0];
+        // console.log(uvi) - works for ATL
+        document.getElementById("uvi").innerText = "UV Index: " + uvi;
+    },
+    search: function () {
+        this.fetchUVI(document.querySelector(".searchBar").value);
     }
+
+    
 };
 
 document.querySelector(".btn").addEventListener("click", function () {
@@ -62,3 +81,5 @@ weather.fetchWeather("Atlanta");
 // With units in imperial
 // https://api.openweathermap.org/data/2.5/weather?q=Atlanta&units=imperial&appid=f06df96322709f9b0254307f0735bb9c
 // weather.fetchWeather("denver")
+// UVI href
+// https://api.openweathermap.org/data/2.5/onecall?lat=33.749&lon=-84.388&units=imperial&appid=f06df96322709f9b0254307f0735bb9c

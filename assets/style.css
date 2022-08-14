@@ -11,18 +11,14 @@ body {
     border-radius: 20px;
 }
 
-div.flex {
-    align-items: center;
-}
-
-
 #descr {
     text-transform: capitalize;
+    padding-bottom: 0rem;
 }
 
 .current > * {
     font-size: 32px;
-    padding: 1rem 0rem;
+    padding: .5rem 0rem;
 }
 
 #city {
@@ -38,7 +34,7 @@ div.flex {
     text-align: center;
 }
 
-#descr, #humid, #speed {
+#descr, #humid, #speed, #uvi {
     padding-left: 2rem;
 }
 

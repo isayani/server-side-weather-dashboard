@@ -20,6 +20,28 @@ div.flex {
     text-transform: capitalize;
 }
 
+.current > * {
+    font-size: 32px;
+    padding: 1rem 0rem;
+}
+
+#city {
+    font-weight: bold;
+    text-align: center;
+    padding-top: 1rem ;
+}
+
+#temp {
+    padding-top: 0px;
+    font-size: 75px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#descr, #humid, #speed {
+    padding-left: 2rem;
+}
+
 .searchBar {
     width: 95%;
     padding: 1.5rem;

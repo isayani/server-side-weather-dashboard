@@ -1,7 +1,17 @@
 var weather = {
     "apiKey": "f06df96322709f9b0254307f0735bb9c",
-    fetchWeather: function () {
-        fetch("https://api.openweathermap.org/data/2.5/weather?q=Atlanta&units=imperial&appid=f06df96322709f9b0254307f0735bb9c").then((response) => response.json()).then((data) => console.log(data));
+    fetchWeather: function (city) {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
+        + city 
+        + "&units=imperial&appid=" 
+        + this.apiKey
+        )
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    },
+
+    displayWeather: function (data) {
+
     }
 };
 

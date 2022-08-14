@@ -11,6 +11,14 @@ body {
     border-radius: 20px;
 }
 
+div.flex {
+    align-items: center;
+}
+
+#descr {
+    text-transform: capitalize;
+}
+
 input {
     width: 95%;
     padding: 1.5rem;

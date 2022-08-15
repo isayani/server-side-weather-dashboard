@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/reset.css">
-        <link rel="stylesheet" href="./assets/style.css">
-        <title>Weather Dashboard</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Weather Dashboard</title>
+  </head>
 
-    <body>
-        <header class="bg-gradient-to-br from-blue-900 to-indigo-900 via-sky-800 p-2">
-            <h1 class="text-white font-bold text-5xl prose-xl text-center p-2 m-2">Weather Dashboard</h1>
-        </header>
+  <body>
+    <header
+      class="bg-gradient-to-br from-blue-900 to-indigo-900 via-sky-800 p-2"
+    >
+      <h1 class="text-white font-bold text-5xl prose-xl text-center p-2 m-2">
+        Weather Dashboard
+      </h1>
+    </header>
 
-        <main class="w-full h-screen flex mt-4 p-2">
-            <aside class="citySearch w-1/4 card">
-                <input class="searchBar m-2" placeholder="Search for a City">
-                <button class="btn ml-24 p-2 bg-gradient-to-br from-blue-900 to-indigo-900 via-sky-800 ">Go!</button>
-                <div class="searchHist">
+    <main class="w-full h-screen flex mt-4 p-2">
+      <aside class="citySearch w-1/4 card">
+        <input class="searchBar m-2" placeholder="Search for a City" />
+        <button
+          class="btn ml-24 p-2 bg-gradient-to-br from-blue-900 to-indigo-900 via-sky-800"
+        >
+          Go!
+        </button>
+        <div class="searchHist"></div>
+      </aside>
 
-                </div>
-    
-            </aside>
+      <div class="w-full space-y-12 ml-2">
+        <div class="current w-full h-3/6 p-2 card">
+          <h1 id="city">Atlanta</h1>
+          <h2 id="temp">51°</h2>
+          <div class="flex">
+            <p id="descr">Cloudy</p>
+            <img id="icon" src="" alt="" />
+          </div>
+          <p id="humid">Humidity:</p>
+          <p id="speed">Wind Speed:</p>
+          <p id="uvi">UV Index:</p>
+        </div>
 
-            <div class="w-full space-y-12 ml-2">
-            <div class="current w-full h-3/6 p-2 card">
-                <h1 id="city">Atlanta</h1>
-                <h2 id="temp">51°</h2>
-                <div class="flex">
-                    <p id="descr">Cloudy</p>
-                    <img id="icon" src="" alt="">
-                </div>
-                <p id="humid">Humidity:</p>
-                <p id="speed">Wind Speed:</p>
-                <p id="uvi">UV Index:</p>
+        <div class="fiveDay w-full h-2/6 inline-flex p-2 card"></div>
+        
+      </div>
+    </main>
+  </body>
 
-            </div>
-
-            <div class="fiveDay w-full h-2/6 inline-flex p-2 card">
-            <div class="day1 w-1/4  m-2 card"></div>
-            <div class="day2 w-1/4 m-2 card"></div>
-            <div class="day3 w-1/4 m-2 card"></div>
-            <div class="day4 w-1/4 m-2 card"></div>
-            <div class="day5 w-1/4 m-2 card"></div>
-            </div>
-            </div>
-        </main>
-
-    </body>
-
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script src="./assets/script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script src="./assets/script.js" defer></script>
 </html>

@@ -19,7 +19,9 @@ function generateListItems (cityArr) {
 
 // generateListItems(cityArr)
 document.querySelector(".searchHist").innerHTML = `
-
+<ul>
+${generateListItems(cityArr)}
+</ul>
 `;
 
 

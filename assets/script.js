@@ -1,22 +1,27 @@
-// params:
-// city name done
+// TO-DO:
 // date (may be easier to get from moment.js)
-// icon rep of weather conditions done
-// the temp done
-// humidity done 
-// the wind speed done
-// uv index (color coded by favorable, moderate, or severe) - unavailable in 2.5
-// bonus clear skies? done
+// color code UV Index
+// display city array to searchHist
 
-// WHEN I view future weather conditions for that city
-// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
 
 var cityArr = []
 if (localStorage.getItem("Cities")) {
     cityArr = JSON.parse(localStorage.getItem("Cities"))
 }
+
+function generateListItems (cityArr) {
+    var cities = "";
+    for (let i = 0; i < cityArr.length; i++) {
+        cities += `<li>${cityArr[i]}</li>`;
+    }
+    return cities;
+}
+
+// generateListItems(cityArr)
+document.querySelector(".searchHist").innerHTML = `
+
+`;
+
 
 var weather = {
     "apiKey": "f06df96322709f9b0254307f0735bb9c",

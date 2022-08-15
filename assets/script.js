@@ -98,6 +98,14 @@ var weather = {
 };
 
 
+// Color code for UV Index
+// if (0 < uvi <= 5) {
+//     document.getElementById("uvi").setAttribute('id', "favorable");
+// } else if (5 < uvi <= 7) {
+//     document.getElementById("uvi").setAttribute('id', "moderate")
+// } else {
+//     document.getElementById("uvi").setAttribute('id', "severe")
+// }
 
 
 document.querySelector(".btn").addEventListener("click", function () {

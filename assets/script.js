@@ -96,9 +96,8 @@ var weather = {
         var day = document.querySelector(".fiveDay");
         day.innerHTML = "";
         for (var i = 1; i < 6; i++) {
-            var now = moment;
             day.innerHTML += `<div class="day1 w-1/4  m-2 card">
-            <span id="date">${now.add(i,"days").format("MMMM Do YYYY")}</span>
+            <span id="date">${moment.add(24, "hours").format("MMMM Do YYYY")}</span>
             <h2 id="temp">${data.daily[i].temp.day}°</h2>
             <div class="flex">
                 <p id="descr">${data.daily[i].weather[0].description}</p>
@@ -108,15 +107,9 @@ var weather = {
             <p id="speed">Wind Speed: ${data.daily[i].wind_speed} mph</p>
         </div>`
         }
-
-        // currentDay.text(today.format("dddd, MMMM Do YYYY"));
         
-
     }
 };
-
-
-// Color code for UV Index
 
 
 

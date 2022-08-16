@@ -6,6 +6,8 @@ var dateEl = document.getElementById("date");
 var moment = moment();
 dateEl.innerText = moment.format("MMMM Do YYYY");
 
+
+
 var cityArr = []
 if (localStorage.getItem("Cities")) {
     cityArr = JSON.parse(localStorage.getItem("Cities"))
@@ -94,8 +96,9 @@ var weather = {
         var day = document.querySelector(".fiveDay");
         day.innerHTML = "";
         for (var i = 1; i < 6; i++) {
+            var now = moment;
             day.innerHTML += `<div class="day1 w-1/4  m-2 card">
-            <span id="date">${data.daily[i].dt}</span>
+            <span id="date">${now.add(i,"days").format("MMMM Do YYYY")}</span>
             <h2 id="temp">${data.daily[i].temp.day}°</h2>
             <div class="flex">
                 <p id="descr">${data.daily[i].weather[0].description}</p>

@@ -1,18 +1,16 @@
-// TO-DO:
-// date (may be easier to get from moment.js)
-// color code UV Index
-// display city array to searchHist
+// current date
 var dateEl = document.getElementById("date");
 var moment = moment();
 dateEl.innerText = moment.format("MMMM Do YYYY");
 
 
-
+// create an array in local storage from Cities
 var cityArr = []
 if (localStorage.getItem("Cities")) {
     cityArr = JSON.parse(localStorage.getItem("Cities"))
 }
 
+// loop through cities and create list items
 function generateListItems (cityArr) {
     var cities = "";
     for (let i = 0; i < cityArr.length; i++) {
@@ -21,14 +19,14 @@ function generateListItems (cityArr) {
     return cities;
 }
 
-// generateListItems(cityArr)
+// generateListItems(cityArr) and put it in unordered list
 document.querySelector(".searchHist").innerHTML = `
 <ul>
 ${generateListItems(cityArr)}
 </ul>
 `;
 
-
+// fetch and dislay functions for all weather
 var weather = {
     "apiKey": "f06df96322709f9b0254307f0735bb9c",
     fetchWeather: function (city) {
@@ -65,7 +63,7 @@ var weather = {
         var { icon, description } = data.weather[0];
         var { temp, humidity } = data.main;
         var { speed } = data.wind;
-        // console.log(name, dt, icon, description, temp, humidity, speed)
+        
         document.getElementById("city").innerText = name;
         document.getElementById("temp").innerText = temp + "°F";
         document.getElementById("descr").innerText = description;
@@ -82,6 +80,7 @@ var weather = {
         var { uvi } = data.daily[0];
         document.getElementById("uvi").innerText = "UV Index: " + uvi;
 
+        // color code based on uv index
         if (0 < uvi <= 5) {
             document.getElementById("uvi").setAttribute('style', "background-color: rgba(0, 128, 0, 0.419);");
         } else if (5 < uvi <= 7) {
@@ -91,13 +90,14 @@ var weather = {
         }
     },
 
+    // for loop for five day weather
     fiveDay: function (data) {
         console.log("this is the data",data); 
         var day = document.querySelector(".fiveDay");
         day.innerHTML = "";
         for (var i = 1; i < 6; i++) {
             day.innerHTML += `<div class="day1 w-1/4  m-2 card">
-            <span id="date">${moment.add(24, "hours").format("MMMM Do YYYY")}</span>
+            <div id="fiveDate">${moment.add(24, "hours").format("MMMM Do YYYY")}</div>
             <h2 id="temp">${data.daily[i].temp.day}°</h2>
             <div class="flex">
                 <p id="descr">${data.daily[i].weather[0].description}</p>
@@ -112,7 +112,7 @@ var weather = {
 };
 
 
-
+// key and click event listeners
 document.querySelector(".btn").addEventListener("click", function () {
     weather.search();
 });
@@ -125,11 +125,3 @@ document.querySelector(".searchBar").addEventListener("keyup", function (event) 
 
 // Ensures placeholder on load
 weather.fetchWeather("Atlanta");
-
-// Curl href
-// https://api.openweathermap.org/data/2.5/weather?q=Atlanta&appid=f06df96322709f9b0254307f0735bb9c
-// With units in imperial
-// https://api.openweathermap.org/data/2.5/weather?q=Atlanta&units=imperial&appid=f06df96322709f9b0254307f0735bb9c
-// weather.fetchWeather("denver")
-// UVI href
-// https://api.openweathermap.org/data/2.5/onecall?lat=33.749&lon=-84.388&units=imperial&appid=f06df96322709f9b0254307f0735bb9c

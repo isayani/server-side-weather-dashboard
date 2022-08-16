@@ -4,6 +4,7 @@
 // display city array to searchHist
 var dateEl = document.getElementById("date");
 var moment = moment();
+dateEl.innerText = moment.format("MMMM Do YYYY");
 
 var cityArr = []
 if (localStorage.getItem("Cities")) {
@@ -78,9 +79,18 @@ var weather = {
     displayUVI: function (data) {
         var { uvi } = data.daily[0];
         document.getElementById("uvi").innerText = "UV Index: " + uvi;
+
+        if (0 < uvi <= 5) {
+            document.getElementById("uvi").setAttribute('style', "background-color: rgba(0, 128, 0, 0.419);");
+        } else if (5 < uvi <= 7) {
+            document.getElementById("uvi").setAttribute('style', "background-color: rgba(113, 128, 0, 0.419);")
+        } else {
+            document.getElementById("uvi").setAttribute('style', "background-color: rgba(128, 23, 0, 0.419);")
+        }
     },
 
     fiveDay: function (data) {
+        console.log("this is the data",data); 
         var day = document.querySelector(".fiveDay");
         day.innerHTML = "";
         for (var i = 1; i < 6; i++) {
@@ -97,20 +107,14 @@ var weather = {
         }
 
         // currentDay.text(today.format("dddd, MMMM Do YYYY"));
-        dateEl.innerText = moment.format("MMMM Do YYYY");
+        
 
     }
 };
 
 
 // Color code for UV Index
-// if (0 < uvi <= 5) {
-//     document.getElementById("uvi").setAttribute('id', "favorable");
-// } else if (5 < uvi <= 7) {
-//     document.getElementById("uvi").setAttribute('id', "moderate")
-// } else {
-//     document.getElementById("uvi").setAttribute('id', "severe")
-// }
+
 
 
 document.querySelector(".btn").addEventListener("click", function () {

@@ -2,12 +2,12 @@
 
 ## Description of Application
 
-This application uses the OpenWeather API to create a Weather Dashboard for user. When city is search, the app forecasts the current weather conditions as well as a 5-day forecast. UV Index is included for current day and color coded by favorable, moderate, and severe. All searches save to local storage, and upon refresh search history populates and background image changes.
+This application uses the OpenWeather API to create a Weather Dashboard for user. When city is searched (either by pressing go or hitting "Enter" key), the app forecasts the current weather conditions as well as a 5-day forecast for city. UV Index is included for current day and color coded by favorable, moderate, and severe. All searches save to local storage, and upon refresh populate as clickable buttons to re-search (latest search populates first). Also includes a unique background image per reload. 
 
 
 ## User Experience
 
-```
+```md
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
 THEN I am presented with current and future conditions for that city and that city is added to the search history

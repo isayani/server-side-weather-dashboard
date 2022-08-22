@@ -92,7 +92,6 @@ var weather = {
 
     // for loop for five day weather
     fiveDay: function (data) {
-        console.log("this is the data",data); 
         var day = document.querySelector(".fiveDay");
         
         day.innerHTML = "";

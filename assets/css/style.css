@@ -6,19 +6,28 @@ body {
 }
 
 ul {
-    box-shadow: 0 0 10px #91c2ea; 
-}
-
-li {
-    padding: 1rem;
+    padding: 2rem;
     text-align: center;
-    font-weight: 500;
-    letter-spacing: .1rem;
-
+    width: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    
 }
 
 .searchHist {
-    padding-top: 1rem; 
+    margin-top: 1rem;
+    padding: 1rem; 
+    box-shadow: 0 0 10px #91c2ea;
+}
+
+.prevCities {
+    display:block;
+    justify-items: center;
+    box-shadow: 0 0 10px #91c2ea;
+    margin: 1rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
 }
 
 .card {
@@ -51,7 +60,7 @@ li {
     text-align: center;
 }
 
-#descr, #humid, #speed, #uvi {
+#descr, #humid, #speed, #uviDiv {
     padding-left: 2rem;
 }
 
@@ -63,6 +72,16 @@ li {
 #fiveDate {
     padding-top: .3rem;
     text-align: center;
+}
+
+#uvi {
+    width: 20%;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.iconDescr {
+    display: inline-block;
 }
 
 .searchBar {

@@ -9,23 +9,26 @@ if (localStorage.getItem("Cities")) {
     cityArr = JSON.parse(localStorage.getItem("Cities"))
 }
 
-// loop through cities and create list items
-function generateListItems (cityArr) {
-    var cities = "";
-    for (let i = 0; i < cityArr.length; i++) {
-        cities += `<button class="prevCities">${cityArr[i]}</button>`;
+var appendImm = function () {
+    // loop through cities and create list items
+    function generateListItems (cityArr) {
+        var cities = "";
+        for (let i = 0; i < cityArr.length; i++) {
+            cities += `<button class="prevCities">${cityArr[i]}</button>`;
+        }
+        return cities;
     }
-    return cities;
-}
 
-// generateListItems(cityArr) and put it in unordered list
-document.querySelector(".searchHist").innerHTML = `
-<ul>
-${generateListItems(cityArr)}
-</ul>
-`;
+    // generateListItems(cityArr) and put it in unordered list
+    document.querySelector(".searchHist").innerHTML = `
+    <ul>
+    ${generateListItems(cityArr)}
+    </ul>
+    `;
+};
 
-// fetch and dislay functions for all weather
+
+// fetch and display functions for all weather
 var weather = {
     "apiKey": "f06df96322709f9b0254307f0735bb9c",
     fetchWeather: function (city) {
@@ -36,6 +39,7 @@ var weather = {
         )
         .then((response) => response.json())
         .then((data) => this.displayWeather(data));
+
     },
 
     fetchUVI: function (data) {
@@ -57,6 +61,7 @@ var weather = {
         if (cityArr.includes(name) === false) {
             cityArr.push(name)
             localStorage.setItem("Cities", JSON.stringify(cityArr))
+            appendImm();
         }
         
         var { icon, description } = data.weather[0];
@@ -122,13 +127,17 @@ searchCities.on("click", function() {
 // key and click event listeners
 document.querySelector(".btn").addEventListener("click", function () {
     weather.search();
+    generateListItems();
 });
 
 document.querySelector(".searchBar").addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         weather.search();
+        generateListItems();
     }
 });
 
 // Ensures placeholder on load
 weather.fetchWeather("Atlanta");
+// Appends search to history
+appendImm();

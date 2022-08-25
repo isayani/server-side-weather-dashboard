@@ -25,10 +25,12 @@ var appendImm = function () {
     ${generateListItems(cityArr)}
     </ul>
     `;
-    
+
+    console.log("before on click")
     // add Event Listener to search hist
     var searchCities = $(".prevCities")
     searchCities.on("click", function() {
+        console.log("clicked", searchCities)
         var cityName = $(this).text()
         weather.fetchWeather(cityName)
     });

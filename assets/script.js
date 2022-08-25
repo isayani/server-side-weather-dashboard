@@ -25,6 +25,13 @@ var appendImm = function () {
     ${generateListItems(cityArr)}
     </ul>
     `;
+    
+    // add Event Listener to search hist
+    var searchCities = $(".prevCities")
+    searchCities.on("click", function() {
+        var cityName = $(this).text()
+        weather.fetchWeather(cityName)
+    });
 };
 
 
@@ -116,13 +123,6 @@ var weather = {
         
     }
 };
-
-// add Event Listener to search hist
-var searchCities = $(".prevCities")
-searchCities.on("click", function() {
-    var cityName = $(this).text()
-    weather.fetchWeather(cityName)
-})
 
 // key and click event listeners
 document.querySelector(".btn").addEventListener("click", function () {
